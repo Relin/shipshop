@@ -31,8 +31,7 @@ export async function init(injector: Injector): Promise<void> {
   let browserLang = i18n.getBrowserLang();
   LOGGER.debug(`Detected browser language : ${browserLang}`);
 
-  if (i18n.getLangs().indexOf(browserLang) === -1)
-    browserLang = 'fr';
+  if (i18n.getLangs().indexOf(browserLang) === -1) browserLang = 'fr';
 
   LOGGER.debug(`Using language : ${browserLang}`);
   await i18n.use(browserLang).toPromise();
@@ -40,7 +39,6 @@ export async function init(injector: Injector): Promise<void> {
   LOGGER.info('Core initialized');
   addSplashItem('Finishing core initialization');
 }
-
 
 export function addSplashItem(txt: string): void {
   const el: any = document.querySelector('#splash-text ul');

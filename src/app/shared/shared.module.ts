@@ -11,24 +11,13 @@ import { PropercasePipe } from './pipes/propercase.pipe';
 // Components
 import { PageHeaderComponent } from './components/page-header.component';
 
+const MODULES: any[] = [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule];
 
-const MODULES: any[] = [
-  CommonModule,
-  FormsModule,
-  ReactiveFormsModule,
-  RouterModule,
-  TranslateModule
-];
-
-const DECLARATIONS: any[] = [
-  PropercasePipe,
-  PageHeaderComponent
-];
-
+const DECLARATIONS: any[] = [PropercasePipe, PageHeaderComponent];
 
 @NgModule({
   imports: MODULES,
   declarations: DECLARATIONS,
-  exports: [...MODULES, ...DECLARATIONS]
+  exports: [...MODULES, ...DECLARATIONS],
 })
-export class SharedModule { }
+export class SharedModule {}

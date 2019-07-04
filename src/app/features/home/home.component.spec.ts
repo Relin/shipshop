@@ -9,8 +9,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      schemas: [ NO_ERRORS_SCHEMA ]
+      declarations: [HomeComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     });
 
     TestBed.compileComponents();

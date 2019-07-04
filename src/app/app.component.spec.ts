@@ -10,45 +10,31 @@ import { SharedModule } from './shared/shared.module';
 import { NgModuleFactoryLoader } from '@angular/core';
 import { HomeModule } from './features/home/home.module';
 
-
 describe('Router: App', () => {
-
   let router: any;
   let location: Location;
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        CoreModule,
-        SharedModule,
-        FeaturesModule,
-        RouterTestingModule.withRoutes(ROUTES)
-      ],
-      declarations: [
-        AppComponent
-      ]
+      imports: [CoreModule, SharedModule, FeaturesModule, RouterTestingModule.withRoutes(ROUTES)],
+      declarations: [AppComponent],
     });
 
     router = TestBed.get(Router);
     const loader = TestBed.get(NgModuleFactoryLoader);
-    loader.stubbedModules = {lazyModule: HomeModule};
+    loader.stubbedModules = { lazyModule: HomeModule };
 
-    router.resetConfig([
-      {path: 'home', loadChildren: 'lazyModule'},
-    ]);
+    router.resetConfig([{ path: 'home', loadChildren: 'lazyModule' }]);
 
     location = TestBed.get(Location);
     fixture = TestBed.createComponent(AppComponent);
   });
 
-
-
   it('should create the app', async(() => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-
 
   it('should navigate to home path', fakeAsync(() => {
     router.navigateByUrl('/home');

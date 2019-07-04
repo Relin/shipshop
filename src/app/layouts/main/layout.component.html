@@ -1,18 +1,20 @@
 <header>
-  <h2><a [routerLink]="'/home'">shipshop</a></h2>
+    <h2><a [routerLink]="'/home'">shipshop</a></h2>
 
-  <p>
-    <select #langSelect (change)="i18n.use(langSelect.value)">
-      <option *ngFor="let lang of i18n.getLangs()" [value]="lang" [selected]="lang === i18n.currentLang">{{ lang }}</option>
-    </select>
-  </p>
+    <p>
+        <select #langSelect (change)="i18n.use(langSelect.value)">
+            <option *ngFor="let lang of i18n.getLangs()" [value]="lang" [selected]="lang === i18n.currentLang">
+                {{ lang }}
+            </option>
+        </select>
+    </p>
 </header>
 
 <main>
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </main>
 
 <footer>
-  shipshop - v{{ manifest.version }}
-  <small>({{ manifest.buildDate | date:'dd-MM-y' }})</small>
+    shipshop - v{{ manifest.version }}
+    <small>({{ manifest.buildDate | date: 'dd-MM-y' }})</small>
 </footer>
